@@ -1,7 +1,7 @@
 def tulo(lista):
     luku = 0
     for i in lista:
-        luku += float(i)
+        luku += int(i)
     return luku
 
 lista = []
@@ -9,7 +9,7 @@ numero = 0
 
 while numero != "":
     numero = input("anna numero: ")
-    if numero != "" and numero.isalpha() == False:
+    if numero.isnumeric():
         lista.append(numero)
 
 print(lista)

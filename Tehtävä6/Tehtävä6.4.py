@@ -1,0 +1,18 @@
+def tulo(lista):
+    luku = 0
+    for i in lista:
+        luku += float(i)
+    return luku
+
+lista = []
+numero = 0
+
+while numero != "":
+    numero = input("anna numero: ")
+    if numero != "" and numero.isalpha() == False:
+        lista.append(numero)
+
+print(lista)
+
+tulos = tulo(lista)
+print(tulos)

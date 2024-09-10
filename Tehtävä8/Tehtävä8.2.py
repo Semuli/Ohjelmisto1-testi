@@ -22,3 +22,6 @@ tyyppi_maarat = get_airport_type_amount(iso_country)
 
 for tyyppi in tyyppi_maarat:
     print(f"Tyyppi:{tyyppi['type']} määrä:{tyyppi['count(*)']}")
+
+if tyyppi_maarat == []:
+    print("Virheellinen maatunnus")

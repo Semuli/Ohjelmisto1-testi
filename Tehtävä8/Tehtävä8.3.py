@@ -15,8 +15,6 @@ def get_airport_name_by_icao(icao):
     airport_data = cursor.fetchall()
     return airport_data
 
-
-
 connection = mysql.connector.connect(
     host='localhost',
     port= 3306,
@@ -27,12 +25,25 @@ connection = mysql.connector.connect(
     )
 
 airport1 = input("Kerro ensimmäisen kentän ICAO-koodi:")
-airport2 = input("Kerro toisen kentän ICAO-koodi:")
 
 airport1_location = get_airport_cordinates(airport1)
 airport1_name = get_airport_name_by_icao(airport1)
+
+while airport1_name == []:
+    airport1 = input("Virheellinen ICAO-Koodi. Anna uudellen:")
+    airport1_location = get_airport_cordinates(airport1)
+    airport1_name = get_airport_name_by_icao(airport1)
+
+airport2 = input("Kerro toisen kentän ICAO-koodi:")
+
 airport2_location = get_airport_cordinates(airport2)
 airport2_name = get_airport_name_by_icao(airport2)
+
+while airport2_name == []:
+    airport2 = input("Virheellinen ICAO-Koodi. Anna uudellen:")
+    airport2_location = get_airport_cordinates(airport2)
+    airport2_name = get_airport_name_by_icao(airport2)
+
 dist = distance.distance(airport1_location, airport2_location)
 
 print(f"Kenttien {airport1_name[0][0]} ja {airport2_name[0][0]} etäisyys toisistaan on: {dist}")
